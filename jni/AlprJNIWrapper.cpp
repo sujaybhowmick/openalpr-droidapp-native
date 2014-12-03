@@ -1,8 +1,12 @@
+/**
+ * Created by sujay on 13/11/14.
+ */
 #include <string>
 #include <sstream>
 #include <cstdio>
 #include <iostream>
 
+// openCV includes
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 
