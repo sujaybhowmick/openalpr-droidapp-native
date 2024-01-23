@@ -13,6 +13,7 @@
 # limitations under the License.
 #
 LOCAL_PATH := $(call my-dir)
+HOME=
 LIB_PATH := $(LOCAL_PATH)/../libs/armeabi-v7a
 
 include $(CLEAR_VARS)
@@ -50,16 +51,16 @@ include $(CLEAR_VARS)
 OPENCV_INSTALL_MODULES:=on
 OPENCV_CAMERA_MODULES:=off
 
-include /home/sujay/builds/src/OpenCV-2.4.9-android-sdk/sdk/native/jni/OpenCV.mk
+include $(LOCAL_PATH)/builds/src/OpenCV-2.4.9-android-sdk/sdk/native/jni/OpenCV.mk
 
 LOCAL_MODULE := openalpr-native
 SOURCE_LIST := $(wildcard $(LOCAL_PATH)/*.cpp)
 HEADER_LIST := $(wildcard $(LOCAL_PATH)/*.h)
 LOCAL_SRC_FILES += $(HEADER_LIST:$(LOCAL_PATH)/%=%)
 LOCAL_SRC_FILES += $(SOURCE_LIST:$(LOCAL_PATH)/%=%)
-LOCAL_C_INCLUDES += /home/sujay/builds/src/openalpr/src/openalpr
-LOCAL_C_INCLUDES += /home/sujay/builds/src/OpenCV-2.4.9-android-sdk/sdk/native/include
-LOCAL_C_INCLUDES += /home/sujay/tools/android-ndk-r10/platforms/android-19/arch-arm/usr/include
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/builds/src/openalpr/src/openalpr
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/builds/src/OpenCV-2.4.9-android-sdk/sdk/native/include
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/tools/android-ndk-r10/platforms/android-19/arch-arm/usr/include
 LOCAL_SHARED_LIBRARIES += tesseract leptonica
 LOCAL_STATIC_LIBRARIES += openalpr support simpleini
 LOCAL_LDLIBS := -llog
